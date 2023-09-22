@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+/* Inicio estilos para el login*/
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+}
+
+/*Inicio de estilos para h1 y h2*/
+
+h1{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    color: #696969;
+    text-shadow: 0px 0px 1px black;
+}
+
+h2{
+    text-align: center;
+    padding-top: 5px;
+    font-family: 'Nunito Sans', sans-serif;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    color:#696969;
+
+}
+
+/*Fin de estilos para h1 y h2*/
+
+/*Centra cajas con flexbox*/
+
+.container-principal{
+    display: flex;
+    justify-content: center;
+}
+
+.cajade3{
+    display: flex;
+    justify-content: center;
+
+/*Fin centrar cajas con flexbox*/
+
+/*Inicio estilos a los botones*/
+
+}
+
+.gfi{
+    position: relative;
+    display: inline-block;
+}
+
+.boton{
+    width: 120px;
+    height: 120px;
+    border-radius: 17px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #007bff;
+}
+
+.botonBorrar{
+    width: 150px;
+    height: 90px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+    
+}
+
+.cajamenu{
+    margin-left: 20px;
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
+.success{
+    background-color: #46a049;
+    border: 2px solid #04AA6D;
+    width: 250px;
+    height: 90px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 18px;
+}
+
+.success:hover{
+    background-color: #04AA6D; 
+}
+
+.primary{
+    background-color: white;
+    border: 1px solid #007bff;
+}
+
+.primary:hover{
+    background: #0b7dda;
+    color: white;
+}
+
+.danger{
+    background-color: #f44336;
+    border: 2px solid #f44336;
+}
+
+.danger:hover{
+    background: #da190b;
+}
+
+.borrar{
+    color: white;
+}
+
+.container{
+   border-radius: 10px;
+   padding-bottom: 20px;
+   background-color: #d3d3d3;
+   box-shadow: 0px 0px 10px black;
+}
+
+/* Fin estilos de botones*/
+
+/*Inicio estilos de numeros*/
+
+.numeros{
+    font-weight: 700px;
+    font-size: 40px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/*Fin estilos de numeros*/
+
+/*Inicio estilo letra confirmar asistencia*/
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/*Fin estilo letra confirmar asistencia*/
+
+/*Inicio estilo del logo*/
+
+.logo{
+    position: absolute;
+    top: 20px;
+    left: 15px;
+}
+
+/*Fin estilo del logo*/
+/* Fin estilos para el login*/
