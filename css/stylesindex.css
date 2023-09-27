@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
 /*:root {
     --app-bg: #101827;
   --lateral: rgba(21, 30, 47,1);
@@ -24,133 +28,136 @@
 */
 
 .container-principal {
-    border-radius: 4px;
-    display: flex;
-    overflow: hidden;
-    margin: 0 auto;
-    height: 100vh;
-  }
-  
-  .lateral {
-    flex-basis: 250px;
-    max-width: 250px;
-    flex-shrink: 0;
-    background-color: #D6ECF9;
-    display: flex;
-    flex-direction: column;
-    border-radius: 10px;
-  }
-  .lateral-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    margin-left: 20px;
-    padding-bottom: 50px;
-  }
-  .lateral-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  .lateral-list-item {
-    position: relative;
-    margin-bottom: 4px;
-    overflow: hidden;
-  }
-
-  ul{
-    list-style: none;
-  }
-  .drop-menu {
-    display: none;
-    padding-left: 20px;
-  }
-
-  #usuarios-link:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  .drop-menu li:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  .drop-menu-cursos li:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  #cursos-link:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  .drop-menu-cursos{
-    display: none;
-    padding-left: 20px;
-  }
-
-  #inicio:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  .drop-menu-reportes li:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  #reportes-link:hover{
-    background-color: #5E97DE;
-    color: white;
-  }
-
-  .drop-menu-reportes{
-    display: none;
-    padding-left: 20px;
-  }
-
-
-  .position-absolute{
-    position: absolute;
-    top: 840px;
-    padding-left: 5px;
-  }
-
-.danger{
-    background-color: #f44336;
-    border: 1px solid #da190b;
-    border-radius: 50px;
+  border-radius: 4px;
+  display: flex;
+  overflow: hidden;
+  margin: 0 auto;
+  height: 100vh;
 }
 
-.danger:hover{
-    background: #da190b;
-    color: white;
+.lateral {
+  flex-basis: 275px;
+  max-width: 275px;
+  flex-shrink: 0;
+  background: linear-gradient(rgb(0, 119, 255), rgba(0, 0, 0, 0.966));
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
 }
 
-li{
-    border-radius: 8px;
+.lateral-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  margin-left: 20px;
+  padding-bottom: 50px;
 }
 
-  .lateral-list-item a {
-    display: flex;
-    align-items: center;
-    width: 90%;
-    padding: 10px;
-    color: var(--sidebar-link);
-    text-decoration: none;
-    font-size: 15px;
-    line-height: 24px;
-    border-radius: 4px;
-  }
+.lateral-list {
+  list-style-type: none;
+  padding: 0;
+}
 
-  .lateral-list-item svg {
-    margin-right: 8px;
-  }
+.lateral-list-item {
+  position: relative;
+  margin-bottom: 4px;
+  overflow: hidden;
+}
 
-  
-  /*.lateral-list-item.active:before {
+ul {
+  list-style: none;
+}
+
+.drop-menu {
+  display: none;
+  padding-left: 20px;
+}
+
+#usuarios-link:hover {
+  background-color: #323850;
+  color: white;
+}
+
+.drop-menu li:hover {
+  background-color: #323850;
+  color: white;
+}
+
+.drop-menu-cursos li:hover {
+  background-color: #323850;
+  color: white;
+}
+
+#cursos-link:hover {
+  background-color: #323850;
+  color: white;
+}
+
+.drop-menu-cursos {
+  display: none;
+  padding-left: 20px;
+}
+
+#inicio:hover {
+  background-color: #323850;
+  color: white;
+}
+
+.drop-menu-reportes li:hover {
+  background-color: #323850;
+  color: white;
+}
+
+#reportes-link:hover {
+  background-color: #323850;
+  color: white;
+}
+
+.drop-menu-reportes {
+  display: none;
+  padding-left: 20px;
+}
+
+
+.position-absolute {
+  position: absolute;
+  top: 840px;
+  padding-left: 5px;
+}
+
+.danger {
+  background-color: #ff0000cb;
+  border-radius: 50px;
+}
+
+.danger:hover {
+  background: #ff0000;
+  color: rgb(255, 255, 255);
+}
+
+li {
+  border-radius: 8px;
+}
+
+.lateral-list-item a {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  padding: 10px;
+  color: var(--sidebar-link);
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 24px;
+  border-radius: 4px;
+}
+
+.lateral-list-item svg {
+  margin-right: 8px;
+}
+
+
+/*.lateral-list-item.active:before {
     content: "";
     position: absolute;
     right: 0;
@@ -158,135 +165,234 @@ li{
     height: 100%;
     width: 4px;
   } */
-  
-  .cuenta-info {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-  }
-  .cuenta-imagen {
-    width: 35px;
-    height: 35px;
-  }
-  .cuenta-nombre {
-    font-size: 14px;
-    margin: 0 8px;
-    overflow: hidden;
-    max-width: 100%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    padding-right: 20px;
-    margin-left: 1px;
-  }
-  .cuenta-mas {
-    padding: 0;
-    border: none;
-    background-color: transparent;
-    margin-left: auto;
-    cursor: pointer;
-  }
-  
-  .icono{
-   width: 120px;
-   height: 50px;
-  }
-  
-  #logo{
-  width: 110px;
-  height: 60px;
-  }
-  
-  .container-barra{
-    padding: 16px;
-    background-color: var(--app-bg);
-    height: 100%;
-    flex: 1;
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
 
-  .block{
-    display: block;
-  }
-  .container-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 4px;
-  }
-  .header-text {
-    color: var(--app-content-main-color);
-    font-size: 24px;
-    line-height: 32px;
-    margin: 0;
-  }
- 
+.cuenta-info {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
 
-  .hidden {
-    display: none;
-    position: absolute;
-    background-color: #CCCCDA;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    right: -350px; /* Ajusta la distancia desde la derecha */
-    top: 0; /* Ajusta la distancia desde la parte superior */
+.cuenta-imagen {
+  width: 35px;
+  height: 35px;
+}
+
+.cuenta-nombre {
+  font-size: 14px;
+  margin: 0 8px;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 20px;
+  margin-left: 1px;
+}
+
+.cuenta-mas {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.icono {
+  width: 120px;
+  height: 50px;
+}
+
+#logo {
+  width: 160px;
+  height: 68px;
+}
+
+.container-barra {
+  padding: 16px;
+  background-color: var(--app-bg);
+  height: 100%;
+  flex: 1;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.block {
+  display: block;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  padding-bottom: 40px;
+}
+
+.header-text {
+  color: var(--app-content-main-color);
+  font-size: 24px;
+  line-height: 32px;
+  margin: 0;
+}
+
+
+.hidden {
+  display: none;
+  position: absolute;
+  background-color: #CCCCDA;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: -350px;
+  /* Ajusta la distancia desde la derecha */
+  top: 0;
+  /* Ajusta la distancia desde la parte superior */
 }
 
 /* Estilo para el botón */
 .cerrar-sesion {
-    position: relative;
+  position: relative;
 }
 
 /* Estilo para el botón al pasar el mouse */
 .cerrar-sesion:hover #mensajeCerrarSesion {
-    display: block;
+  display: block;
 }
 
-.nombre-sesion{
-    font-size: 17px;
+.nombre-sesion {
+  font-size: 20px;
+  color: white;
 }
 
-span{
-    font-size: 18px;
+.lateral span {
+  font-size: 21px;
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Inicio Formulario de Registro de Usuarios */
 
-.container-formulario{
-    display: flex;
-    justify-content: center;
-    padding-top: 40px;
-  }
+.container-formulario {
+  overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+}
 
-  .container-formulario-registro{
-    background: linear-gradient(rgb(61, 116, 187), rgb(183, 203, 219));
-    border-radius: 10px;
-  }
+.container-formulario-registro {
+  padding-top: 10px;
+  background: linear-gradient(rgb(0, 119, 255), rgba(0, 0, 0, 0.966));
+  border-radius: 20px;
   
+}
 
-  .block{
-    margin-bottom: 20px;
-  }
+.formulario-registro{
+  padding: 20px 80px 20px 80px;
+}
 
-  .formulario-registro{
-    padding: 20px 65px 20px 65px;
-  }
+.block-boton {
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
 
-  .form-select{
-    width: 100%;
-    height: 28px;
-    border-radius: 5px;
-  }
+.block{
+  padding-top: 20px;
+}
 
-  .block-boton{
-    margin-top: 40px;
-    margin-bottom: 80px;
-  }
+/* Estilo para las etiquetas */
+.label-form {
+  font-size: 16px;
+  font-weight: bold;
+  color: white; /* Color del texto de la etiqueta */
+  margin-bottom: 6px;
+  transition: color 0.3s ease-in-out; /* Transición de color al pasar el mouse */
+}
 
+.text-form{
+  font-family: 'Nunito';
+  font-size: 22px;
+  padding-left: 20px;
+}
 
+.label-form:hover {
+  color: rgb(3, 42, 73); /* Cambia el color del texto al pasar el mouse */
+}
 
+/* Estilo para los inputs */
+.block-style {
+  width: 150px;
+  margin-top: 8px;
+  margin-left: 8px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #dee6f0; /* Borde del input */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 16px;
+  outline: none;
+}
 
+.block-style:hover{
+  background-color: #c4d8ec;
+}
+
+.salon{
+  width: 30px;
+  margin-top: 8px;
+  margin-left: 8px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #dee6f0; /* Borde del input */
+  border-radius: 4px; /* Bordes redondeados */
+  font-size: 16px;
+  outline: none;
+}
+
+#salon-container{
+  padding-top: 20px;
+}
+
+/* Estilo para el botón */
+button {
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Transición de color de fondo al pasar el mouse */
+}
+
+button:hover {
+  background-color: #5a658f; /* Cambia el color de fondo del botón al pasar el mouse */
+}
+
+.block:hover{
+  border: 1px;
+}
+
+.form-select:hover{
+  background-color: #abc7e0;
+}
+
+.form-select{
+  width: 490px;
+}
+
+.registrar-user{
+  width: 60%;
+  background: #2bff00d0;
+}
+
+.registrar-user:hover{
+  background-color: #2bff00;
+}
+
+.flex{
+  display: flex;
+  justify-content: start;
+}
+
+.column{
+  padding-top: 20px;
+  align-items: start;
+}

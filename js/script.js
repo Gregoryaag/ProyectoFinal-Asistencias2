@@ -98,18 +98,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Muestra el grupo de campos adicionales correspondiente al rol seleccionado
     if (selectedRol === "estudiante") {
+      categoriaContainer.style.display = "block";
       cursoContainer.style.display = "block";
       turnoContainer.style.display = "block";
       profesorContainer.style.display = "block";
       salonContainer.style.display = "block";
 
     } else if (selectedRol === "profesor") {
+      categoriaContainer.style.display = "block";
       cursoContainer.style.display = "block";
       cursoContainerAdd.style.display = "block";
 
     } else if (selectedRol === "administrador") {
-      categoriaContainer.style.display = "block";
-      cursoContainer.style.display = "block";
     }
   }
 

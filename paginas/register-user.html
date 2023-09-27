@@ -167,7 +167,7 @@
             <div class="position-absolute">
                 <div class="cuenta-info">
                     <div class="cuenta-imagen">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor"
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="white"
                             class="bi bi-person-vcard" viewBox="0 0 16 16">
                             <path
                                 d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
@@ -196,19 +196,32 @@
             <div class="container-formulario">
                 <div class="container-formulario-registro">
                     <form action="#" class="formulario-registro">
-                        <label for="nombre">Nombre</label>
-                        <input class="block" type="text" name="nombre" placeholder="Gregory">
-                        <label for="apellido">Apellido</label>
-                        <input class="block" type="text" name="apellido" placeholder="Arteaga">
-                        <label for="nombre">C.I</label>
-                        <input class="block" type="number" name="cedula" placeholder="24210544">
-                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                        <input class="block" type="date" id="fechaNacimiento" name="fechaNacimiento"
-                            placeholder="dd/mm/aaaa">
+                        <div class="flex">
 
-                        <div class="block">
-                            <label for="rol">Rol:</label>
-                            <select class="form-select" id="rol" name="rol">
+                            <div class="column">
+                                <label for="nombre" class="label-form"><span class="text-form">Nombre</span></label>
+                                <input class="block-style" type="text" name="nombre" required>
+                            </div>
+
+                            <div class="column">
+                                <label for="apellido" class="label-form"><span class="text-form">Apellido</span></label>
+                                <input class="block-style" type="text" name="apellido" required>
+                            </div>
+                            <div class="column">
+                                <label for="cedula" class="label-form"><span class="text-form">C.I</span></label>
+                                <input class="block-style" type="text" name="cedula" required>
+                            </div>
+                            <div class="column">
+                                <label for="fechaNacimiento" class="label-form"><span class="text-form">F.
+                                        Nacimiento</span></label>
+                                <input class="block-style" type="date" id="fechaNacimiento" name="fechaNacimiento">
+                            </div>
+
+                        </div>
+
+                        <div class="column">
+                            <label for="rol" class="label-form"><span class="text-form">Rol:</span></label>
+                            <select class="block-style form-select" id="rol" name="rol">
                                 <option selected>Seleccione el Rol</option>
                                 <option value="estudiante">Estudiante</option>
                                 <option value="profesor">Profesor</option>
@@ -217,57 +230,70 @@
                         </div>
 
                         <div class="block" id="categoria-container">
-                            <label for="categoria">Categoria:</label>
-                            <select class="form-select" id="categoria-estudiante" name="categoria">
-                                <option selected>Seleccione una Categoria</option>
-                                <option value="programacion">Programacion</option>
-                                <option value="mercadeo">Mercadeo</option>
-                                <option value="ofimatica">Offimatica</option>
-                            </select>
+                            <label for="categoria" class="label-form"><span class="text-form">Categoria:</span></label>
+                            <div class="select-mov">
+                                <select class="form-select" id="categoria-estudiante" name="categoria">
+                                    <option selected>Seleccione una Categoria</option>
+                                    <option value="programacion">Programacion</option>
+                                    <option value="mercadeo">Mercadeo</option>
+                                    <option value="ofimatica">Offimatica</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="block" id="curso-container">
-                            <label for="cursos">Curso:</label>
-                            <select class="form-select" id="curso-estudiante" name="curso">
-                                <option selected>Seleccione un Curso</option>
-                                <option value="php">PHP</option>
-                                <option value="html5">HTML5</option>
-                                <option value="python">Python</option>
-                            </select>
+                            <label for="cursos" class="label-form"><span class="text-form">Curso:</span></label>
+                            <div class="select-mov">
+                                <select class="form-select" id="curso-estudiante" name="curso">
+                                    <option selected>Seleccione un Curso</option>
+                                    <option value="php">PHP</option>
+                                    <option value="html5">HTML5</option>
+                                    <option value="python">Python</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="block" id="curso-container-add">
-                            <label  for="curso-add">Agregar otro curso</label>
-                            <select class="form-select" id="curso-estudiante-add" name="curso-add">
-                                <option selected>Seleccione un Curso</option>
-                                <option value="php">PHP</option>
-                                <option value="html5">HTML5</option>
-                                <option value="python">Python</option>
-                            </select>
+                            <label for="curso-add" class="label-form"><span class="text-form">Agregar otro
+                                    Curso:</span></label>
+                            <div class="select-mov">
+                                <select class="form-select" id="curso-estudiante-add" name="curso-add">
+                                    <option selected>Seleccione un Curso</option>
+                                    <option value="php">PHP</option>
+                                    <option value="html5">HTML5</option>
+                                    <option value="python">Python</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="block" id="turno-container">
-                            <label for="turno">Turno:</label>
-                            <select class="form-select" id="turno" name="turno">
-                                <option selected>Seleccione un Turno</option>
-                                <option value="manana">Mañana</option>
-                                <option value="tarde">Tarde</option>
-                                <option value="sabatino">Sabatino</option>
-                            </select>
+                            <label for="turno" class="label-form"><span class="text-form">Turno:</span></label>
+                            <div class="select-mov">
+                                <select class="form-select" id="turno" name="turno">
+                                    <option selected>Seleccione un Turno</option>
+                                    <option value="manana">Mañana</option>
+                                    <option value="tarde">Tarde</option>
+                                    <option value="sabatino">Sabatino</option>
+                                </select>
+                            </div>
                         </div>
 
                         <div class="block" id="profesor-container">
-                            <label for="profesorAsignado">Profesor:</label>
-                            <select class="form-select" id="profesorAsignado" name="profesorAsignado">
-                                <option selected>Seleccione un Profesor</option>
-                                <option value="jose-rivas">Jose Rivas</option>
-                                <option value="joseva-legarra">Joseva Legarra</option>
-                                <option value="gregory-arteaga">Gregory Arteaga</option>
-                            </select>
+                            <label for="profesorAsignado" class="label-form"><span
+                                    class="text-form">Profesor:</span></label>
+                            <div class="select-mov">
+                                <select class="form-select" id="profesorAsignado" name="profesorAsignado">
+                                    <option selected>Seleccione un Profesor</option>
+                                    <option value="jose-rivas">Jose Rivas</option>
+                                    <option value="joseva-legarra">Joseva Legarra</option>
+                                    <option value="gregory-arteaga">Gregory Arteaga</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="block" id="salon-container">
-                            <label id="salonAsignado" for="salon">Salon</label>
-                            <input class="block" type="number" name="salon" placeholder="2">
+                        <div id="salon-container">
+                            <label for="salon" class="label-form" id="salonAsignado"><span
+                                    class="text-form">Salon:</span></label>
+                            <input class="salon" type="text" name="salon" placeholder="2">
                         </div>
 
                         <div class="block-boton">
@@ -275,7 +301,7 @@
                         </div>
 
                         <div class="formulario-registrar">
-                            <button>Registrar</button>
+                            <button class="registrar-user"><span>Registrar</span></button>
                         </div>
                     </form>
                 </div>

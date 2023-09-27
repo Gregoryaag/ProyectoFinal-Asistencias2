@@ -4,19 +4,19 @@
 
 /* Inicio estilos para el login*/
 
-*{
+* {
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
 }
 
-body{
-    background-color: white;
+body {
+    background: white;
 }
 
 /*Inicio de estilos para h1 y h2*/
 
-h1{
+h1 {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -26,13 +26,13 @@ h1{
     text-shadow: 0px 0px 1px black;
 }
 
-h2{
+h2 {
     text-align: center;
     padding-top: 5px;
     font-family: 'Nunito Sans', sans-serif;
     padding-left: 20px;
     padding-bottom: 20px;
-    color:#696969;
+    color: #696969;
 
 }
 
@@ -40,27 +40,27 @@ h2{
 
 /*Centra cajas con flexbox*/
 
-.container-principal{
+.container-principal {
     display: flex;
     justify-content: center;
 }
 
-.cajade3{
+.cajade3 {
     display: flex;
     justify-content: center;
 
-/*Fin centrar cajas con flexbox*/
+    /*Fin centrar cajas con flexbox*/
 
-/*Inicio estilos a los botones*/
+    /*Inicio estilos a los botones*/
 
 }
 
-.gfi{
+.gfi {
     position: relative;
     display: inline-block;
 }
 
-.boton{
+.boton {
     width: 120px;
     height: 120px;
     border-radius: 17px;
@@ -68,25 +68,42 @@ h2{
     box-shadow: 2px 2px 2px #007bff;
 }
 
-.botonBorrar{
+.botonBorrar {
     width: 150px;
     height: 90px;
     border-radius: 10px;
     cursor: pointer;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 18px;
-    
+
 }
 
-.cajamenu{
+.cajamenu {
     margin-left: 20px;
     margin-top: 40px;
     margin-right: 20px;
 }
 
-.success{
-    background-color: #46a049;
-    border: 2px solid #04AA6D;
+.primary {
+    background-color: white;
+    border: 1px solid #007bff;
+}
+
+.primary:hover {
+    background: #0b7dda;
+    color: white;
+}
+
+.danger {
+    background-color: #ff0000cb;
+}
+
+.danger:hover {
+    background: #ff0000;
+}
+
+.success {
+    background-color: #2bff00d0;
     width: 250px;
     height: 90px;
     border-radius: 10px;
@@ -95,45 +112,26 @@ h2{
     font-size: 18px;
 }
 
-.success:hover{
-    background-color: #04AA6D; 
+.success:hover {
+    background-color: #2bff00;
 }
 
-.primary{
-    background-color: white;
-    border: 1px solid #007bff;
-}
-
-.primary:hover{
-    background: #0b7dda;
+.borrar {
     color: white;
 }
 
-.danger{
-    background-color: #f44336;
-    border: 2px solid #f44336;
-}
-
-.danger:hover{
-    background: #da190b;
-}
-
-.borrar{
-    color: white;
-}
-
-.container{
-   border-radius: 10px;
-   padding-bottom: 20px;
-   background-color: #d3d3d3;
-   box-shadow: 0px 0px 10px black;
+.container {
+    background: linear-gradient(70deg, rgb(0, 0, 0), rgb(0, 4, 255));
+    border-radius: 10px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 10px black;
 }
 
 /* Fin estilos de botones*/
 
 /*Inicio estilos de numeros*/
 
-.numeros{
+.numeros {
     font-weight: 700px;
     font-size: 40px;
     font-family: 'Nunito Sans', sans-serif;
@@ -143,7 +141,7 @@ h2{
 
 /*Inicio estilo letra confirmar asistencia*/
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
@@ -152,7 +150,7 @@ a{
 
 /*Inicio estilo del logo*/
 
-.logo{
+.logo {
     position: absolute;
     top: 20px;
     left: 15px;
