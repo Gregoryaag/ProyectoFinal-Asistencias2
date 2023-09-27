@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+
   // Agrega un controlador de eventos al selector de "Rol" para mostrar/ocultar campos adicionales
   rolSelect.addEventListener("change", toggleCamposAdicionales);
 
   // Ejecuta la función para establecer el estado inicial
   toggleCamposAdicionales();
 });
-
 
 
 

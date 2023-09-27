@@ -200,16 +200,16 @@
 
                             <div class="column">
                                 <label for="nombre" class="label-form"><span class="text-form">Nombre</span></label>
-                                <input class="block-style" type="text" name="nombre" required>
+                                <input class="block-style" id="identificacion" type="text" name="nombre" placeholder="Gregory" title="Introduzca el Nombre" required>
                             </div>
 
                             <div class="column">
                                 <label for="apellido" class="label-form"><span class="text-form">Apellido</span></label>
-                                <input class="block-style" type="text" name="apellido" required>
+                                <input class="block-style" id="identificacion" type="text" name="apellido" placeholder="Arteaga" title="Introduzca el Apellido" required>
                             </div>
                             <div class="column">
                                 <label for="cedula" class="label-form"><span class="text-form">C.I</span></label>
-                                <input class="block-style" type="text" name="cedula" required>
+                                <input class="block-style" id="identificacion" type="text" name="cedula" placeholder="24210544" title="Introduzca la Cedula" required>
                             </div>
                             <div class="column">
                                 <label for="fechaNacimiento" class="label-form"><span class="text-form">F.
@@ -231,64 +231,54 @@
 
                         <div class="block" id="categoria-container">
                             <label for="categoria" class="label-form"><span class="text-form">Categoria:</span></label>
-                            <div class="select-mov">
-                                <select class="form-select" id="categoria-estudiante" name="categoria">
-                                    <option selected>Seleccione una Categoria</option>
-                                    <option value="programacion">Programacion</option>
-                                    <option value="mercadeo">Mercadeo</option>
-                                    <option value="ofimatica">Offimatica</option>
-                                </select>
-                            </div>
+                            <select class="block-style form-select" id="categoria-estudiante" name="categoria">
+                                <option selected>Seleccione una Categoria</option>
+                                <option value="programacion">Programacion</option>
+                                <option value="mercadeo">Mercadeo</option>
+                                <option value="ofimatica">Offimatica</option>
+                            </select>
                         </div>
 
                         <div class="block" id="curso-container">
                             <label for="cursos" class="label-form"><span class="text-form">Curso:</span></label>
-                            <div class="select-mov">
-                                <select class="form-select" id="curso-estudiante" name="curso">
-                                    <option selected>Seleccione un Curso</option>
-                                    <option value="php">PHP</option>
-                                    <option value="html5">HTML5</option>
-                                    <option value="python">Python</option>
-                                </select>
-                            </div>
+                            <select class="block-style form-select" id="curso-estudiante" name="curso">
+                                <option selected>Seleccione un Curso</option>
+                                <option value="php">PHP</option>
+                                <option value="html5">HTML5</option>
+                                <option value="python">Python</option>
+                            </select>
                         </div>
 
                         <div class="block" id="curso-container-add">
                             <label for="curso-add" class="label-form"><span class="text-form">Agregar otro
                                     Curso:</span></label>
-                            <div class="select-mov">
-                                <select class="form-select" id="curso-estudiante-add" name="curso-add">
-                                    <option selected>Seleccione un Curso</option>
-                                    <option value="php">PHP</option>
-                                    <option value="html5">HTML5</option>
-                                    <option value="python">Python</option>
-                                </select>
-                            </div>
+                            <select class="block-style form-select" id="curso-estudiante-add" name="curso-add">
+                                <option selected>Seleccione un Curso</option>
+                                <option value="php">PHP</option>
+                                <option value="html5">HTML5</option>
+                                <option value="python">Python</option>
+                            </select>
                         </div>
 
                         <div class="block" id="turno-container">
                             <label for="turno" class="label-form"><span class="text-form">Turno:</span></label>
-                            <div class="select-mov">
-                                <select class="form-select" id="turno" name="turno">
-                                    <option selected>Seleccione un Turno</option>
-                                    <option value="manana">Mañana</option>
-                                    <option value="tarde">Tarde</option>
-                                    <option value="sabatino">Sabatino</option>
-                                </select>
-                            </div>
+                            <select class="block-style form-select" id="turno" name="turno">
+                                <option selected>Seleccione un Turno</option>
+                                <option value="manana">Mañana</option>
+                                <option value="tarde">Tarde</option>
+                                <option value="sabatino">Sabatino</option>
+                            </select>
                         </div>
 
                         <div class="block" id="profesor-container">
                             <label for="profesorAsignado" class="label-form"><span
                                     class="text-form">Profesor:</span></label>
-                            <div class="select-mov">
-                                <select class="form-select" id="profesorAsignado" name="profesorAsignado">
-                                    <option selected>Seleccione un Profesor</option>
-                                    <option value="jose-rivas">Jose Rivas</option>
-                                    <option value="joseva-legarra">Joseva Legarra</option>
-                                    <option value="gregory-arteaga">Gregory Arteaga</option>
-                                </select>
-                            </div>
+                            <select class="block-style form-select" id="profesorAsignado" name="profesorAsignado">
+                                <option selected>Seleccione un Profesor</option>
+                                <option value="jose-rivas">Jose Rivas</option>
+                                <option value="joseva-legarra">Joseva Legarra</option>
+                                <option value="gregory-arteaga">Gregory Arteaga</option>
+                            </select>
                         </div>
                         <div id="salon-container">
                             <label for="salon" class="label-form" id="salonAsignado"><span
@@ -296,12 +286,27 @@
                             <input class="salon" type="text" name="salon" placeholder="2">
                         </div>
 
-                        <div class="block-boton">
-                            <button class="generarID" id="generadorID">Generar ID</button>
+                        <div class="block">
+                            <div class="switch-container">
+                                <span class=" etiqueta-estatus text-form label-form">Status:</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="estadoSwitch">
+                                    <span class="slider"></span>
+                                    <span class="etiqueta-on" id="activo"></span>
+                                    <span class="etiqueta-off" id="inactivo"></span>
+                                </label>
+                            </div>
                         </div>
 
-                        <div class="formulario-registrar">
-                            <button class="registrar-user"><span>Registrar</span></button>
+                        <div class="block">
+                            <div class="block-boton">
+                                <button class="generarID" id="generadorID"><span class="text-generarID">Generar ID</span></button>
+                            </div>
+                        </div>
+                        <div class="block">
+                            <div class="formulario-registrar">
+                                <button class="registrar-user" id="registerUser"><span class="text-register">Registrar</span></button>
+                            </div>
                         </div>
                     </form>
                 </div>
