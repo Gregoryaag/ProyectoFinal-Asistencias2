@@ -1,5 +1,6 @@
 
 
+//Barra Lateral
 document.addEventListener("DOMContentLoaded", function () {
   var usuariosLink = document.getElementById("usuarios-link");
   var dropdownMenu = document.querySelector(".drop-menu");
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var dropdownMenu = document.querySelector(".drop-menu-cursos");
 
   usuariosLink.addEventListener("click", function (event) {
-    event.preventDefault(); // Evitar que el enlace siga el enlace href="#" por defecto
+    event.preventDefault(); // Evitasr que el enlace siga el enlace href="#" por defecto
 
     if (dropdownMenu.style.display === "none" || dropdownMenu.style.display === "") {
       dropdownMenu.style.display = "block"; // Mostrar la lista desplegable
@@ -45,31 +46,29 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Obtener el elemento del botón de cierre de sesión
+
+// Obtiene el botón de cierre de sesión
 const cerrarSesionButton = document.getElementById("cerrarSesion");
 
-// Función para manejar el evento de cambio del botón de cierre de sesión
 function handleCierreSesion() {
-    // Verificar si el botón está activado (checked)
+    // Verifica si el botón está activado (checked)
     if (cerrarSesionButton.checked) {
         // Desactivar temporalmente el botón y realizar la animación de slider
         cerrarSesionButton.disabled = true;
         sliderAnimation().then(() => {
-            // Cuando se completa la animación, mostrar la ventana de confirmación personalizada
             showCustomConfirmation();
         });
     }
 }
 
-// Función para simular la animación de slider (puedes personalizar esta función)
+// Función para simular la animación de slider
 function sliderAnimation() {
     return new Promise((resolve) => {
         setTimeout(() => {
-            // Simular la animación (cambia el estado del botón después de un retraso)
             cerrarSesionButton.checked = true;
             setTimeout(() => {
                 cerrarSesionButton.checked = false;
-                resolve(); // Resuelve la promesa después de la animación
+                resolve(); 
             }, 400); // Duración de la animación en milisegundos 
         }, 200); // Retraso antes de la animación en milisegundos 
     });
@@ -91,23 +90,21 @@ function cambiorol() {
 
 }
 
-// Función para mostrar una ventana de confirmación personalizada
+// Función para mostrara una ventana de confirmacion
 function showCustomConfirmation() {
     const confirmacion = window.confirm("¿Estás seguro de que deseas cerrar la sesión?");
     cerrarSesionButton.disabled = false; // Reactivar el botón
     if (confirmacion) {
-        // Si el usuario hace clic en "Sí", redirigir a la página de inicio de sesión
+        // Si el usuario hace clic en Si, redirige a la pagina de inicio de sesion
         window.location.href = "paginas/login-admin.php";
     } else {
-        // Si el usuario hace clic en "No", desactivar el botón de cierre de sesión
+        // Si el usuario hace clic en No, desactivael boton de cierre de sesion
         cerrarSesionButton.checked = false;
     }
 }
 
-// Agregar un evento de cambio al botón de cierre de sesión
+// Agrega un evento de cambio al boton de cierre de sesion
 cerrarSesionButton.addEventListener("change", handleCierreSesion);
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var rolSelect = document.getElementById("rol");
@@ -119,11 +116,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var inscripcionContainer = document.getElementById("select-inscripcion-container");
   var modalidadContainer = document.getElementById("select-modalidad-container");
 
-  // Función para mostrar u ocultar campos adicionales
+  // Funcion para mostrar u ocultar campos adicionales
   function toggleCamposAdicionales() {
     var selectedRolId = rolSelect.value;
 
-    // Oculta todos los grupos de campos adicionales
+    // Oculta todos campos adicionales
     categoriaContainer.style.display = "none";
     cursoContainer.style.display = "none";
     diplomadoContainer.style.display = "none";
@@ -132,29 +129,26 @@ document.addEventListener("DOMContentLoaded", function () {
     inscripcionContainer.style.display = "none";
     modalidadContainer.style.display = "none";
 
-    // Muestra el grupo de campos adicionales correspondiente al rol seleccionado
-    if (selectedRolId === "2") { // Identificador del rol "estudiante"
+    // Muestra campos adicionales correspondiente al rol seleccionado
+    if (selectedRolId === "2") { // Identificador del rol estudiante
       modalidadContainer.style.display = "block";
       inscripcionContainer.style.display = "block";
-    } else if (selectedRolId === "3") { // Identificador del rol "profesor"
+    } else if (selectedRolId === "3") { // Identificador del rol profesor
       categoriaContainer.style.display = "block";
       cursoContainer.style.display = "none";
       diplomadoContainer.style.display = "none";
-    } else if (selectedRolId === "1") { // Identificador del rol "administrador"
+    } else if (selectedRolId === "1") { // Identificador del rol administrador
       
     }
   }
 
-  // Agrega un controlador de eventos al selector de "Rol" para mostrar/ocultar campos adicionales
+  // Agrega un controlador de eventos al selector de Rol para mostrar/ocultar campos adicionales
   rolSelect.addEventListener("change", toggleCamposAdicionales);
 
-  // Llamar manualmente a la función para aplicar las condiciones y mostrar/ocultar campos adicionales
   toggleCamposAdicionales();
 });
 
-
-
-
+// Permite ocultar y mostrar opciones
 document.addEventListener("DOMContentLoaded", function () {
   var inscripcionDiplomado = document.getElementById("diplomado");
   var inscripcionCurso = document.getElementById("curso");
@@ -164,30 +158,30 @@ document.addEventListener("DOMContentLoaded", function () {
   var profesorContainer = document.getElementById("profesor-container");
   var diplomadoContainer = document.getElementById("diplomado-container");
 
-  // Función para mostrar u ocultar campos adicionales
+  // Funcion para mostrar u ocultar campos adicionales
   function toggleCamposAdicionales() {
     if (inscripcionDiplomado.checked) {
       categoriaContainer.style.display = "block";
-      cursoContainer.style.display = "none"; // Ocultar el contenedor de curso
+      cursoContainer.style.display = "none"; // Oculta el contenedor de curso
       diplomadoContainer.style.display = "block";
       turnoContainer.style.display = "block";
       profesorContainer.style.display = "none";
-      // Mostrar otros elementos relacionados con la inscripción de diplomado
+
     } else if (inscripcionCurso.checked) {
       categoriaContainer.style.display = "block";
       cursoContainer.style.display = "block";
-      diplomadoContainer.style.display = "none"; // Ocultar el contenedor de diplomado
-      turnoContainer.style.display = "block"; // Ocultar el contenedor de turno
-      profesorContainer.style.display = "block"; // Ocultar el contenedor de profesor
-      // Mostrar otros elementos relacionados con la inscripción de curso
+      diplomadoContainer.style.display = "none";
+      turnoContainer.style.display = "block"; 
+      profesorContainer.style.display = "block";
+      
     }
   }
 
-  // Agregar eventos de escucha para el cambio de selección en los inputs tipo radio
+  // Agrega eventos de escucha para el cambio de selección en los inputs tipo radio
   inscripcionDiplomado.addEventListener("change", toggleCamposAdicionales);
   inscripcionCurso.addEventListener("change", toggleCamposAdicionales);
 
-  // Llamar a la función una vez al cargar la página para establecer el estado inicial
+  // Llama a la funcion una vez al cargar la pagina para establecer el estado inicial
   toggleCamposAdicionales();
 });
 
@@ -199,8 +193,8 @@ document.addEventListener("DOMContentLoaded", function () {
   var guardarIDButton = document.getElementById("guardarIDButton");
 
   generarIDButton.addEventListener("click", function () {
-    var randomNumber = Math.floor(Math.random() * 9000) + 1000; // Genera un número aleatorio de 4 dígitos
-    idUsuarioInput.value = randomNumber; // Asigna el número aleatorio al campo de texto
+    var randomNumber = Math.floor(Math.random() * 9000) + 1000; // Genera un numero aleatorio de 4 digitos
+    idUsuarioInput.value = randomNumber; // Asigna el numero aleatorio al campo de texto
   });
 
   guardarIDButton.addEventListener("click", function () {
@@ -212,7 +206,6 @@ document.addEventListener("DOMContentLoaded", function () {
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
-        // Aquí puedes realizar cualquier acción después de guardar exitosamente el ID
         console.log("ID guardado en la base de datos");
       }
     };
@@ -220,38 +213,33 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-
+//Login para ingresar
 var password = ""; // Variable para almacenar la contraseña
 
-// Función para agregar un número a la contraseña
+// Funcion para agregar un número a la contraseña
 function agregarNumero(numero) {
   password += numero;
   mostrarPassword();
 }
 
-// Función para borrar el último número de la contraseña
+// Funcion para borrar el ultimo numero de la contraseña
 function borrarUltimoNumero() {
   password = password.slice(0, -1);
   mostrarPassword();
 }
 
-// Función para mostrar la contraseña en el campo de texto
+// Funcion para mostrar la contraseña en el campo de texto
 function mostrarPassword() {
   var passwordInput = document.getElementById("passwordInput");
   passwordInput.value = password;
 }
 
-// Función para confirmar la asistencia
+// Funcion para confirmar la asistencia
 function confirmarAsistencia() {
-  // Realizar las acciones necesarias al confirmar la asistencia
-  // Puedes acceder a la contraseña ingresada a través de la variable "password"
   console.log("Contraseña ingresada: " + password);
-  // Aquí puedes enviar la contraseña al servidor para su validación, por ejemplo
 }
 
-
 //Realiza la busqueda en mi tabla de estudiantes
-
 function buscarEstudiantes() {
   var input = document.getElementById("buscarInput");
   var filter = input.value.toUpperCase();
@@ -273,7 +261,7 @@ function buscarEstudiantes() {
       }
     }
 
-    if (found || i === 0) { // Mostrar las filas que coinciden con la búsqueda y mantener el primer row (encabezados)
+    if (found || i === 0) { // Mostrar las filas que coinciden con la busqueda y mantener el encabezado
       rows[i].style.display = "";
     } else {
       rows[i].style.display = "none";
@@ -287,14 +275,14 @@ input.addEventListener("input", buscarEstudiantes);
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  var table = document.getElementById("tablaEstudiantes"); // Seleccionar la tabla
-  var rowsPerPage = 5; // Número de filas por página
-  var currentPage = 1; // Página actual
+  var table = document.getElementById("tablaEstudiantes");
+  var rowsPerPage = 5; // Número de filas por pagina
+  var currentPage = 1; // Pagina actual
 
   function displayRows() {
-    var rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr"); // Seleccionar las filas en el cuerpo de la tabla
+    var rows = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
 
-    // Calcular el índice inicial y final de las filas a mostrar
+    // Calcula el indice inicial y final de las filas a mostrar
     var startIndex = (currentPage - 1) * rowsPerPage;
     var endIndex = startIndex + rowsPerPage;
 
@@ -309,11 +297,13 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  function createPagination() {
-    var rowCount = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length; // Obtener el número total de filas
-    var pageCount = Math.ceil(rowCount / rowsPerPage); // Calcular el número total de páginas
 
-    var paginationList = document.getElementsByClassName("pagination")[0]; // Seleccionar la lista de paginación
+  //Paginacion en mi tabla de estudiantes
+  function createPagination() {
+    var rowCount = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length; // Obtiene el numero total de filas
+    var pageCount = Math.ceil(rowCount / rowsPerPage); // Calcula el numero total de paginas
+
+    var paginationList = document.getElementsByClassName("pagination")[0]; // Selecciona la lista de paginacion
     paginationList.innerHTML = ""; // Limpiar la lista de paginación
 
     // Crear los enlaces de paginación
@@ -326,7 +316,7 @@ document.addEventListener("DOMContentLoaded", function() {
       link.textContent = i;
       link.className = "page-link";
 
-      // Asignar el evento onclick para cambiar de página
+      // Asignar el evento onclick para cambiar de pagina
       link.addEventListener("click", (function(page) {
         return function() {
           currentPage = page;
@@ -339,7 +329,6 @@ document.addEventListener("DOMContentLoaded", function() {
       paginationList.appendChild(listItem);
     }
 
-    // Deshabilitar/enabled el enlace "Previous" y "Next" según la página actual
     var prevLink = paginationList.getElementsByClassName("prev-link")[0];
     var nextLink = paginationList.getElementsByClassName("next-link")[0];
 
@@ -356,59 +345,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   }
 
-  // Mostrar las filas y crear la paginación inicial
+  // Mostrar las filas y crear la paginacion inicial
   displayRows();
   createPagination();
 });
 
 
-
-document.addEventListener("DOMContentLoaded", function() {
-  var tabla = document.getElementById("tablaEstudiantes");
-  var filas = tabla.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-
-  // Función para manejar la acción de modificar
-  function modificarEstudiante(index) {
-    var fila = filas[index];
-    var nombre = fila.getElementsByTagName("td")[0].textContent;
-    var edad = fila.getElementsByTagName("td")[1].textContent;
-
-    // Aquí puedes implementar la lógica para mostrar un formulario de modificación
-    // con los valores actuales del estudiante y permitir al usuario realizar los cambios necesarios.
-    // Por ejemplo, puedes mostrar un modal con un formulario prellenado.
-
-    // Una vez que se realicen los cambios, puedes actualizar los valores en la fila correspondiente.
-    // Supongamos que tienes acceso a los nuevos valores del estudiante después de la modificación:
-    var nuevoNombre = "Nuevo nombre";
-    var nuevaEdad = 30;
-
-    fila.getElementsByTagName("td")[0].textContent = nuevoNombre;
-    fila.getElementsByTagName("td")[1].textContent = nuevaEdad;
-  }
-
-  // Función para manejar la acción de eliminar
-  function eliminarEstudiante(index) {
-    // Aquí puedes implementar la lógica para confirmar la eliminación del estudiante.
-    // Por ejemplo, puedes mostrar un mensaje de confirmación o un modal de confirmación.
-    // Si el usuario confirma la eliminación, puedes proceder a eliminar la fila correspondiente.
-
-    filas[index].remove();
-  }
-
-  // Asignar eventos a los botones de modificar y eliminar
-  var btnModificar = tabla.getElementsByClassName("btn-modificar");
-  var btnEliminar = tabla.getElementsByClassName("btn-eliminar");
-
-  for (var i = 0; i < btnModificar.length; i++) {
-    // Utilizamos una función de cierre para capturar el valor actual de 'i'
-    (function(index) {
-      btnModificar[index].addEventListener("click", function() {
-        modificarEstudiante(index);
-      });
-
-      btnEliminar[index].addEventListener("click", function() {
-        eliminarEstudiante(index);
-      });
-    })(i);
-  }
-});
