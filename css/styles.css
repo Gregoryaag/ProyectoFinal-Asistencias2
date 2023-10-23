@@ -11,7 +11,7 @@
 }
 
 body {
-    background: white;
+    background: rgb(238, 237, 237);
 }
 
 /*Inicio de estilos para h1 y h2*/
@@ -19,7 +19,7 @@ body {
 h1 {
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     font-family: 'Roboto', sans-serif;
     font-size: 40px;
     color: #696969;
@@ -27,13 +27,28 @@ h1 {
 }
 
 h2 {
-    text-align: center;
     padding-top: 5px;
     font-family: 'Nunito Sans', sans-serif;
     padding-left: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     color: #696969;
 
+}
+
+.block-h2{
+    display: flex;
+    justify-content: center;
+}
+
+.input-pass{
+margin-bottom: 12px;
+padding: 4px;
+border: none;
+border-radius: 10px;
+background: rgb(202, 201, 201);
+font-size: 15px;
+text-align: center;
+width: 178px;
 }
 
 /*Fin de estilos para h1 y h2*/
@@ -65,17 +80,20 @@ h2 {
     height: 120px;
     border-radius: 17px;
     cursor: pointer;
-    box-shadow: 2px 2px 2px #007bff;
+    box-shadow: 0px 0px 10px inset #45b5d1;
+    border: none;
 }
 
 .botonBorrar {
     width: 150px;
     height: 90px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 18px;
-
+    box-shadow: 0px 0px 10px inset #000000;
+    transition: all 800ms;
+    border: none;
 }
 
 .cajamenu {
@@ -86,12 +104,13 @@ h2 {
 
 .primary {
     background-color: white;
-    border: 1px solid #007bff;
+    transition: all 400ms;
 }
 
 .primary:hover {
     background: #0b7dda;
     color: white;
+    border: none;
 }
 
 .danger {
@@ -100,20 +119,25 @@ h2 {
 
 .danger:hover {
     background: #ff0000;
+    font-size: 20px;
 }
 
 .success {
     background-color: #2bff00d0;
     width: 250px;
     height: 90px;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 18px;
+    box-shadow: 0px 0px 5px inset #000000;
+    transition: all 800ms;
+    border: none;
 }
 
 .success:hover {
     background-color: #2bff00;
+    font-size: 20px;
 }
 
 .borrar {
@@ -121,7 +145,7 @@ h2 {
 }
 
 .container {
-    background: linear-gradient(70deg, rgb(0, 0, 0), rgb(0, 4, 255));
+    background: linear-gradient(70deg, rgb(242, 246, 247), rgb(175, 187, 194));
     border-radius: 10px;
     padding-bottom: 20px;
     box-shadow: 0px 0px 10px black;
@@ -157,4 +181,5 @@ a {
 }
 
 /*Fin estilo del logo*/
+
 /* Fin estilos para el login*/

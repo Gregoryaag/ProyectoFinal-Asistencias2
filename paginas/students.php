@@ -4,9 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar Usuario</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="/css/stylesindex.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Estudiantes</title>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
             </div>
             <ul class="lateral-list">
                 <li class="lateral-list-item">
-                    <a href="/index.html" id="inicio">
+                    <a href="/index.php" id="inicio">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-house-fill" viewBox="0 0 16 16">
                             <path
@@ -40,7 +42,7 @@
                         <span>Usuarios</span>
                     </a>
                     <ul class="drop-menu">
-                        <li><a href="/paginas/register-user.html">
+                        <li><a href="/paginas/register-user.php">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-person-fill-add" viewBox="0 0 16 16">
                                     <path
@@ -50,7 +52,7 @@
                                 </svg>
                                 <span>Registrar Usuario</span>
                             </a></li>
-                        <li><a href="#">
+                        <li><a href="/paginas/students.php">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-people-fill" viewBox="0 0 16 16">
                                     <path
@@ -176,139 +178,179 @@
                         </svg>
                     </div>
                     <div class="cuenta-nombre"><span class="nombre-sesion">Gregory</span></div>
-                    <button class="cerrar-sesion btn danger" id="cerrarSesionButton">
-                        <a href="/paginas/login.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="20" fill="black" class=""
-                                viewBox="0 0 16 16">
-                                <path d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z" />
-                                <path d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z" />
-                            </svg>
-                        </a>
-                    </button>
-                    <div id="mensajeCerrarSesion" class="hidden">¿Estás seguro de que deseas cerrar la sesión?</div>
+                    <label class="switch-cerrar-sesion">
+                        <div id="mensajeCerrarSesion" class="hidden">¿Estás seguro de que deseas cerrar la sesión?</div>
+                        <input type="checkbox" id="cerrarSesion">
+                        <span class="slider-cerrar-sesion"><a href="/paginas/login-admin.php"></a></span>
+                    </label>
                 </div>
             </div>
         </div>
         <div class="container-barra">
             <div class="container-header">
-                <h1 class="header-text">Registrar Usuario</h1>
+                <h1 class="header-text">Estudiantes</h1>
             </div>
-            <div class="container-formulario">
-                <div class="container-formulario-registro">
-                    <form action="#" class="formulario-registro">
-                        <div class="flex">
-
-                            <div class="column">
-                                <label for="nombre" class="label-form"><span class="text-form">Nombre</span></label>
-                                <input class="block-style" id="identificacion" type="text" name="nombre" placeholder="Gregory" title="Introduzca el Nombre" required>
+                <div class="container-estudiantes">
+                    <div class="container-table-all">
+                        <div class="filtrar-estudiantes">
+                            <div class="icon-buscar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                    class="bi bi-search" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                </svg>
                             </div>
-
-                            <div class="column">
-                                <label for="apellido" class="label-form"><span class="text-form">Apellido</span></label>
-                                <input class="block-style" id="identificacion" type="text" name="apellido" placeholder="Arteaga" title="Introduzca el Apellido" required>
-                            </div>
-                            <div class="column">
-                                <label for="cedula" class="label-form"><span class="text-form">C.I</span></label>
-                                <input class="block-style" id="identificacion" type="text" name="cedula" placeholder="24210544" title="Introduzca la Cedula" required>
-                            </div>
-                            <div class="column">
-                                <label for="fechaNacimiento" class="label-form"><span class="text-form">F.
-                                        Nacimiento</span></label>
-                                <input class="block-style" type="date" id="fechaNacimiento" name="fechaNacimiento">
-                            </div>
-
+                            <input class="input-buscar" type="text" id="buscarInput" placeholder="Buscar">
                         </div>
 
-                        <div class="column">
-                            <label for="rol" class="label-form"><span class="text-form">Rol:</span></label>
-                            <select class="block-style form-select" id="rol" name="rol">
-                                <option selected>Seleccione el Rol</option>
-                                <option value="estudiante">Estudiante</option>
-                                <option value="profesor">Profesor</option>
-                                <option value="administrador">Administrador</option>
-                            </select>
+                    <div class="container-tabla-estudiantes">
+                        <table class="tabla-estudiantes table table-striped" id="tablaEstudiantes">
+                            <thead>
+                                <tr class="">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Cedula</th>
+                                    <th scope="col">Curso Inscrito</th>
+                                    <th scope="col">Turno</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Gregory</td>
+                                    <td>Arteaga</td>
+                                    <td>24210544</td>
+                                    <td>Programacion Web</td>
+                                    <td>11:00 a.m - 02:00 p.m</td>
+                                    <td>1234</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jose</td>
+                                    <td>Rivas</td>
+                                    <td>18943557</td>
+                                    <td>Python - Nivel 2</td>
+                                    <td>Sab 01:00 p.m - 06:00 p.m</td>
+                                    <td>4321</td>
+                                    <td>Inactivo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jesus</td>
+                                    <td>Casanova</td>
+                                    <td>28536012</td>
+                                    <td>Marketing Digital - Nivel 1</td>
+                                    <td>02:00 p.m - 05:00 p.m</td>
+                                    <td>1423</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jesus</td>
+                                    <td>Casanova</td>
+                                    <td>28536012</td>
+                                    <td>Marketing Digital - Nivel 1</td>
+                                    <td>02:00 p.m - 05:00 p.m</td>
+                                    <td>1423</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jesus</td>
+                                    <td>Casanova</td>
+                                    <td>28536012</td>
+                                    <td>Marketing Digital - Nivel 1</td>
+                                    <td>02:00 p.m - 05:00 p.m</td>
+                                    <td>1423</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jesus</td>
+                                    <td>Casanova</td>
+                                    <td>28536012</td>
+                                    <td>Marketing Digital - Nivel 1</td>
+                                    <td>02:00 p.m - 05:00 p.m</td>
+                                    <td>1423</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jesus</td>
+                                    <td>Casanova</td>
+                                    <td>28536012</td>
+                                    <td>Marketing Digital - Nivel 1</td>
+                                    <td>02:00 p.m - 05:00 p.m</td>
+                                    <td>1423</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jesus</td>
+                                    <td>Casanova</td>
+                                    <td>28536012</td>
+                                    <td>Marketing Digital - Nivel 1</td>
+                                    <td>02:00 p.m - 05:00 p.m</td>
+                                    <td>1423</td>
+                                    <td>Activo</td>
+                                    <td>
+                                        <button class="btn-modificar">Modificar</button>
+                                        <button class="btn-eliminar">Eliminar</button>
+                                      </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="paginacion">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <a class="page-link">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item active" aria-current="page">
+                                        <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
-
-                        <div class="block" id="categoria-container">
-                            <label for="categoria" class="label-form"><span class="text-form">Categoria:</span></label>
-                            <select class="block-style form-select" id="categoria-estudiante" name="categoria">
-                                <option selected>Seleccione una Categoria</option>
-                                <option value="programacion">Programacion</option>
-                                <option value="mercadeo">Mercadeo</option>
-                                <option value="ofimatica">Offimatica</option>
-                            </select>
-                        </div>
-
-                        <div class="block" id="curso-container">
-                            <label for="cursos" class="label-form"><span class="text-form">Curso:</span></label>
-                            <select class="block-style form-select" id="curso-estudiante" name="curso">
-                                <option selected>Seleccione un Curso</option>
-                                <option value="php">PHP</option>
-                                <option value="html5">HTML5</option>
-                                <option value="python">Python</option>
-                            </select>
-                        </div>
-
-                        <div class="block" id="curso-container-add">
-                            <label for="curso-add" class="label-form"><span class="text-form">Agregar otro
-                                    Curso:</span></label>
-                            <select class="block-style form-select" id="curso-estudiante-add" name="curso-add">
-                                <option selected>Seleccione un Curso</option>
-                                <option value="php">PHP</option>
-                                <option value="html5">HTML5</option>
-                                <option value="python">Python</option>
-                            </select>
-                        </div>
-
-                        <div class="block" id="turno-container">
-                            <label for="turno" class="label-form"><span class="text-form">Turno:</span></label>
-                            <select class="block-style form-select" id="turno" name="turno">
-                                <option selected>Seleccione un Turno</option>
-                                <option value="manana">Mañana</option>
-                                <option value="tarde">Tarde</option>
-                                <option value="sabatino">Sabatino</option>
-                            </select>
-                        </div>
-
-                        <div class="block" id="profesor-container">
-                            <label for="profesorAsignado" class="label-form"><span
-                                    class="text-form">Profesor:</span></label>
-                            <select class="block-style form-select" id="profesorAsignado" name="profesorAsignado">
-                                <option selected>Seleccione un Profesor</option>
-                                <option value="jose-rivas">Jose Rivas</option>
-                                <option value="joseva-legarra">Joseva Legarra</option>
-                                <option value="gregory-arteaga">Gregory Arteaga</option>
-                            </select>
-                        </div>
-                        <div id="salon-container">
-                            <label for="salon" class="label-form" id="salonAsignado"><span
-                                    class="text-form">Salon:</span></label>
-                            <input class="salon" type="text" name="salon" placeholder="2">
-                        </div>
-
-                        <div class="block">
-                            <div class="switch-container">
-                                <span class=" etiqueta-estatus text-form label-form">Status:</span>
-                                <label class="switch">
-                                    <input type="checkbox" id="estadoSwitch">
-                                    <span class="slider"></span>
-                                    <span class="etiqueta-on" id="activo"></span>
-                                    <span class="etiqueta-off" id="inactivo"></span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="block">
-                            <div class="block-boton">
-                                <button class="generarID" id="generadorID"><span class="text-generarID">Generar ID</span></button>
-                            </div>
-                        </div>
-                        <div class="block">
-                            <div class="formulario-registrar">
-                                <button class="registrar-user" id="registerUser"><span class="text-register">Registrar</span></button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

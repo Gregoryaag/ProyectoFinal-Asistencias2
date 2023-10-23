@@ -1,31 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&family=Roboto&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-/*:root {
-    --app-bg: #101827;
-  --lateral: rgba(21, 30, 47,1);
-  --app-content-main-color: #fff;
-  --lateral-link: #fff;
-  --lateral-active-link: #1d283c;
-  --lateral-hover-link: #1a2539;
-  --action-color: #2869ff;
-  --action-color-hover: #6291fd;
-  --app-content-secondary-color: #1d283c;
-}
-
-.light:root {
-  --app-bg: #fff;
-  --lateral: #f3f6fd;
-  --app-content-secondary-color: #f3f6fd;
-  --app-content-main-color: #1f1c2e;
-  --lateral-link: #1f1c2e;
-  --lateral-hover-link: rgba(195, 207, 244, 0.5);
-  --lateral-active-link: rgba(195, 207, 244, 1);
-  --lateral-main-color: #1f1c2e;
-}
-
-*/
 
 .container-principal {
   border-radius: 4px;
@@ -39,10 +16,10 @@
   flex-basis: 275px;
   max-width: 275px;
   flex-shrink: 0;
-  background: linear-gradient(rgb(47, 122, 209), rgba(0, 0, 0, 0.966));
+  background: linear-gradient(rgb(159, 213, 235), rgba(54, 67, 75, 0.966));
   display: flex;
   flex-direction: column;
-  border-radius: 15px;
+  border-radius: 4px;
 }
 
 .lateral-header {
@@ -208,7 +185,7 @@ li {
 
 .container-barra {
   padding: 16px;
-  background-color: var(--app-bg);
+  background-color: rgb(228, 234, 236);
   height: 100%;
   flex: 1;
   max-height: 100%;
@@ -226,12 +203,15 @@ li {
   justify-content: space-between;
   padding: 0 4px;
   padding-bottom: 40px;
+  padding-left: 20px;
 }
 
 .header-text {
-  color: var(--app-content-main-color);
-  font-size: 24px;
-  line-height: 32px;
+  color: #499ac9;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  padding-top: 20px;
+  line-height: 35px;
   margin: 0;
 }
 
@@ -248,7 +228,6 @@ li {
   right: -350px;
   /* Ajusta la distancia desde la derecha */
   top: 0;
-  /* Ajusta la distancia desde la parte superior */
 }
 
 /* Estilo para el botón */
@@ -267,11 +246,67 @@ li {
 }
 
 .lateral span {
-  font-size: 21px;
+  font-size: 18px;
   font-family: 'Roboto', sans-serif;
 }
 
 /* Inicio Formulario de Registro de Usuarios */
+
+.id-generar{
+  margin-left: 37px;
+  font-size: 12px;
+  height: 40px;
+  width: 80px;
+  text-align: center;
+  background-color: #d4e3e9;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  transition: 0.8s;
+}
+
+.id-generar:hover{
+  font-size: 25px;
+  background: #24ec1d;
+  color: black
+}
+
+.container-inscripcion .text-form{
+  padding-right: 15px;
+}
+
+.text-select-diplomado{
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  margin-left: 4px;
+  margin-right: 18px;
+}
+
+.text-select-curso{
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  margin-left: 4px;
+}
+
+.container-inscripcion{
+  padding-top: 15px;
+  padding-bottom: 25px;
+}
+
+.block-selects{
+  display: flex;
+}
+
+.ancholabel-rol{
+  width: 90px;
+  margin-top: 7px;
+}
+
+.ancholabel{
+  width: 130px;
+  margin-top: 7px;
+}
+
 
 .container-formulario {
   overflow-y: scroll;
@@ -279,146 +314,154 @@ li {
   justify-content: center;
 }
 
+.status-user{
+  padding-top: 12px;
+}
+
 .container-formulario-registro {
+  background-color: rgba(255, 255, 255, 0.521);
+  border: 3px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   padding-top: 10px;
-  background: linear-gradient(rgb(13, 105, 211), rgba(0, 0, 0, 0.966));
+  /* background: linear-gradient(rgb(13, 105, 211), rgba(0, 0, 0, 0.966)); */
   border-radius: 20px;
-  
+
 }
 
-.formulario-registro{
-  padding: 20px 80px 20px 80px;
+.formulario-registro {
+  padding: 20px 30px 20px 30px;
 }
 
-.block{
-  padding-top: 20px;
+.block {
+  padding-top: 38px;
 }
 
 /* Estilo para las etiquetas */
 .label-form {
   font-size: 16px;
   font-weight: bold;
-  color: white; /* Color del texto de la etiqueta */
-  margin-bottom: 6px;
-  transition: color 0.3s ease-in-out; /* Transición de color al pasar el mouse */
+  transition: color 0.3s ease-in-out;
 }
 
-.text-form{
-  font-family: 'Nunito';
-  font-size: 22px;
+.text-form {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
   padding-left: 20px;
+  color: #79a3cf;
 }
 
-.label-form:hover {
-  color: rgb(3, 42, 73); /* Cambia el color del texto al pasar el mouse */
-}
+
 
 /* Estilo para los inputs */
 .block-style {
   width: 150px;
-  margin-top: 8px;
   margin-left: 8px;
   padding: 8px;
   margin-bottom: 20px;
-  border: 1px solid #dee6f0; /* Borde del input */
-  border-radius: 4px; /* Bordes redondeados */
+  border: 1px solid #dee6f0;
+  border-radius: 4px;
   font-size: 16px;
   outline: none;
 }
 
-.block-style:hover{
-  background-color: #c4d8ec;
+.block-style:hover {
+  background-color: #f0f4f7;
 }
 
-.salon{
+.salon {
   width: 30px;
   margin-top: 8px;
   margin-left: 8px;
   padding: 8px;
   margin-bottom: 20px;
-  border: 1px solid #dee6f0; /* Borde del input */
-  border-radius: 4px; /* Bordes redondeados */
+  border: 1px solid #dee6f0;
+  border-radius: 4px;
   font-size: 16px;
   outline: none;
 }
 
-#salon-container{
+#salon-container {
   padding-top: 20px;
 }
 
 /* Estilo para el botón */
-button {
-  background-color: #007bff; /* Color de fondo del botón */
-  color: #fff; /* Color del texto del botón */
-  padding: 10px 20px;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out; /* Transición de color de fondo al pasar el mouse */
-}
 
-button:hover {
-  background-color: #5a658f; /* Cambia el color de fondo del botón al pasar el mouse */
-}
-
-.block:hover{
+.block:hover {
   border: 1px;
 }
 
-.block-boton{
+.block-boton {
   padding-top: 10px;
 }
 
-.form-select:hover{
-  background-color: #abc7e0;
+.form-select:hover {
+  background-color: #e9eff5;
 }
 
-.form-select{
+.form-select {
   width: 490px;
 }
 
-#categoria-estudiante{
-  align-items: end;
+.generarID {
+  border-radius: 10px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 17px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 1s;
 }
 
-.generarID{
-  border-radius: 8px;
+.generarID:hover {
+  background-color: #5a658f;
+  font-size: 18px;
 }
 
-.registrar-user{
+.registrar-user {
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
   width: 60%;
-  background: #2bff00d0;
+  background: #39c91cd0;
   border-radius: 8px;
+  border: none;
+  font-size: 17px;
+  transition: all 1s;
 }
 
-.registrar-user:hover{
-  background-color: #2bff00;
+.registrar-user:hover {
+  background-color: #35c518;
+  font-size: 19px;
 }
 
-.formulario-registrar{
+.formulario-registrar {
   display: flex;
   justify-content: center;
 }
 
-.flex{
+.flex {
   display: flex;
   justify-content: start;
 }
 
-.column{
+.column {
   padding-top: 20px;
   align-items: start;
 }
 
-/* Estilos generales para el switch */
+
+/* Estilos para el switch */
 .switch {
   position: relative;
   display: inline-block;
-  width: 65px; /* Ancho ajustado para dar espacio a las etiquetas */
+  width: 65px;
   height: 35px;
 }
 
-/* Estilos para el input (el checkbox oculto) */
+/* Estilos para el input */
 .switch input {
   display: none;
 }
@@ -431,16 +474,16 @@ button:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc; /* Color de fondo cuando está inactivo */
+  background-color: #ccc;
   transition: 0.4s;
   border-radius: 35px;
 }
 
-.slider:hover{
+.slider:hover {
   background-color: #8697a8;
 }
 
-/* Estilos para el slider cuando el switch está en estado activo (checked) */
+/* Estilos para el slider cuando el switch está en estado activo */
 .slider:before {
   position: absolute;
   content: "";
@@ -453,24 +496,25 @@ button:hover {
   border-radius: 50%;
 }
 
-/* Estilos para el slider cuando el switch está en estado activo (checked) */
-input:checked + .slider {
-  background-color: #2196F3; /* Color de fondo cuando está activo */
+
+input:checked+.slider {
+  background-color: #2196F3;
 }
 
-/* Estilos para el slider cuando el switch está en estado activo (checked) */
-input:checked + .slider:before {
+/* Estilos para el slider cuando el switch está en estado activo*/
+input:checked+.slider:before {
   transform: translateX(30px);
 }
 
 /* Estilos para las etiquetas ON y OFF */
-.etiqueta-on, .etiqueta-off {
+.etiqueta-on,
+.etiqueta-off {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 14px;
   padding: 0 5px;
-  display: inline; /* Mostrar ambas etiquetas inicialmente */
+  display: inline;
 }
 
 .etiqueta-on {
@@ -482,24 +526,133 @@ input:checked + .slider:before {
 }
 
 /* Ocultar la etiqueta OFF cuando el switch está encendido */
-input:checked + .slider + .etiqueta-off {
+input:checked+.slider+.etiqueta-off {
   display: none;
 }
 
 /* Estilos generales para el switch-container */
 .switch-container {
   display: flex;
-  align-items: center; /* Centrar verticalmente el contenido */
+  align-items: center;
 }
 
 /* Estilos para la etiqueta "Estatus" */
 .etiqueta-estatus {
-  margin-right: 10px; /* Espacio entre "Estatus" y el interruptor */
+  margin-right: 12px;
 }
 
-#identificacion::placeholder{
-  
-  color: #758a92; /* Cambia el color del texto del placeholder */
-    font-style: italic; /* Cambia el estilo de fuente del placeholder */
-    opacity: 0.7; /* Cambia la opacidad del texto del placeholder */
+#identificacion::placeholder {
+
+  color: #758a92;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* Estilos generales para el switch */
+.switch-cerrar-sesion {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch-cerrar-sesion input {
+  display: none;
+}
+
+/* Estilos para el slider del switch */
+.slider-cerrar-sesion {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #b39292;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Estilos para el slider cuando el switch está en estado activo */
+.slider-cerrar-sesion:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Estilos para el slider cuando el switch está en estado activo */
+input:checked+.slider-cerrar-sesion {
+  background-color: #f32121;
+}
+
+/* Estilos para el slider cuando el switch está en estado activo*/
+input:checked+.slider-cerrar-sesion:before {
+  transform: translateX(25px);
+  /* Mueve el botón del interruptor a la derecha cuando está activo */
+}
+
+
+/* Fin del Formulario Registrar Usuario */
+
+
+/* Inicio de tabla de Estudiantes */
+
+.container-estudiantes{
+  display: flex;
+  justify-content: start;
+}
+
+.filtrar-estudiantes {
+  display: flex;
+  justify-content: end;
+}
+
+#buscarInput {
+  width: 180px;
+  padding: 5px;
+}
+
+
+#tablaEstudiantes th, #tablaEstudiantes td {
+  padding: 18px;
+}
+
+.container-table-all{
+  padding-top: 40px;
+}
+
+.container-estudiantes{
+  padding-top: 25px;
+  padding-left: 45px;
+}
+
+.paginacion{
+  padding-top: 20px;
+
+}
+
+.input-buscar{
+  margin-bottom: 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  transition: all 0.4s;
+}
+
+.input-buscar:hover{
+  transform: 500ms;
+  font-size: 15px;
+  font-style: italic;
+  background: #e6ecf1;
+  border: none;
+}
+
+.icon-buscar{
+  margin-top: 4px;
 }

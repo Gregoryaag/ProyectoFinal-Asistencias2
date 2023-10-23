@@ -16,7 +16,7 @@
             </div>
             <ul class="lateral-list">
                 <li class="lateral-list-item">
-                    <a href="/index.html" id="inicio">
+                    <a href="/index.php" id="inicio">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                             class="bi bi-house-fill" viewBox="0 0 16 16">
                             <path
@@ -37,7 +37,7 @@
                         <span>Usuarios</span>
                     </a>
                     <ul class="drop-menu">
-                        <li><a href="/paginas/register-user.html">
+                        <li><a href="/paginas/register-user.php">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-person-fill-add" viewBox="0 0 16 16">
                                     <path
@@ -47,7 +47,7 @@
                                 </svg>
                                 <span>Registrar Usuario</span>
                             </a></li>
-                        <li><a href="#">
+                        <li><a href="/paginas/students.php">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                     class="bi bi-people-fill" viewBox="0 0 16 16">
                                     <path
@@ -173,16 +173,11 @@
                         </svg>
                     </div>
                     <div class="cuenta-nombre"><span class="nombre-sesion">Gregory</span></div>
-                    <button class="cerrar-sesion btn danger" id="cerrarSesionButton">
-                        <a href="/paginas/login.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="45" height="20" fill="black" class=""
-                                viewBox="0 0 16 16">
-                                <path d="M9 11c.628-.836 1-1.874 1-3a4.978 4.978 0 0 0-1-3h4a3 3 0 1 1 0 6H9z" />
-                                <path d="M5 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1A5 5 0 1 0 5 3a5 5 0 0 0 0 10z" />
-                            </svg>
-                        </a>
-                    </button>
-                    <div id="mensajeCerrarSesion" class="hidden">¿Estás seguro de que deseas cerrar la sesión?</div>
+                    <label class="switch-cerrar-sesion">
+                        <div id="mensajeCerrarSesion" class="hidden">¿Estás seguro de que deseas cerrar la sesión?</div>
+                        <input type="checkbox" id="cerrarSesion">
+                        <span class="slider-cerrar-sesion"><a href="paginas/login-admin.php"></a></span>
+                    </label>
                 </div>
             </div>
         </div>
