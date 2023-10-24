@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-document.addEventListener("DOMContentLoaded", function () {
+/* document.addEventListener("DOMContentLoaded", function () {
   var generarIDButton = document.getElementById("generadorID");
   var idUsuarioInput = document.getElementById("idUsuario");
   var guardarIDButton = document.getElementById("guardarIDButton");
@@ -211,7 +211,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     xhr.send("id_sesion=" + idSesion); // Envia el ID al servidor
   });
-});
+}); */
+
 
 //Login para ingresar
 var password = ""; // Variable para almacenar la contraseña

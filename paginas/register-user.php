@@ -1,6 +1,12 @@
 <?php
 require("../modelos/conexion.php");
 
+// Generar número aleatorio de 4 dígitos
+$numeroAleatorio = rand(1000, 9999);
+
+// Formatear el número para asegurarse de que tenga 4 dígitos
+$numeroFormateado = str_pad($numeroAleatorio, 4, '0', STR_PAD_LEFT);
+
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -10,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $cedula = $_POST["cedula"];
     $fechaNacimiento = $_POST["fechaNacimiento"];
     $rol = $_POST["rol"];
-
+    
     if (isset($_POST["inscripcion-modalidad"])){
         $modalidad = $_POST["inscripcion-modalidad"];
     }
@@ -22,28 +28,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $diplomado = $_POST["diplomados"];
     $turno = $_POST["turno"];
     $profesor = $_POST["profesorAsignado"];
+    $id_usuario = $_POST["idUsuario"];
 
+      // Establecer el valor predeterminado para la columna "status" como "activo" (1)
+    $status = 1;
 
-    // Inserta los datos en la tabla usuarios
-    $sql = "INSERT INTO usuarios (nombre, apellido, cedula, fecha_nacimiento) VALUES ('$nombre', '$apellido', '$cedula', '$fechaNacimiento');";
+    // Insertar los datos en la tabla usuarios con el valor predeterminado de "status"
+    $sql = "INSERT INTO usuarios (nombre, apellido, cedula, fecha_nacimiento, rol, id_sesion, status) VALUES ('$nombre', '$apellido', '$cedula', '$fechaNacimiento','$rol', '$id_usuario', '$status');";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Registro de usuario exitoso";
+        echo "<script>alert('Registro de usuario exitoso');</script>";
     } else {
-        echo "Error al registrar el usuario: " . $conn->error;
+        echo "<script>alert('Error al Registrar el Usario');</script> " . $conn->error;
     }
-
-    $conn->close();
 }
 
-// Realiza una consulta a la base de datos para obtener los roles
-$sql = "SELECT id_rol, roles FROM roles";
-$result = $conn->query($sql);
+// Obtener los usuarios con el rol de profesor (rol número 3)
+$sqlProfesores = "SELECT id_usuario, nombre, apellido FROM usuarios WHERE rol = 3";
+$result = $conn->query($sqlProfesores);
+
+// Crear un array para almacenar los profesores y sus identificadores desde la base de datos
+$profesoresArray = array();
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $profesoresArray[] = array(
+            'id_usuario' => $row["id_usuario"],
+            'nombre' => $row["nombre"],
+            'apellido' => $row["apellido"]
+        );
+    }
+}
 
 // Crea un array para almacenar los roles y sus identificadores desde la base de datos
 $rolesArray = array();
 
-if ($result->num_rows > 0) {
+if (count(array($result)) > 0) {
   while ($row = $result->fetch_assoc()) {
     $rolesArray[] = array(
       'id_rol' => $row["id_rol"],
@@ -51,9 +71,9 @@ if ($result->num_rows > 0) {
     );
   }
 }
+
 $sqlroles = "SELECT * FROM roles;";
 $roles = $conn->query($sqlroles);
-
 
 // Realiza una consulta a la base de datos para obtener las categorias
 $sql = "SELECT id_categoria, nombre_categoria FROM categorias";
@@ -96,7 +116,7 @@ $diplomados = $conn->query($sqldiplomados);
 $sql = "SELECT id_curso, nombre_curso FROM cursos";
 $result = $conn->query($sql);
 
-// Crea un array para almacenar los cursos y sus identificadores desde la base de datos
+// Crea un array para almacenarlos cursos y sus identificadores desde la base de datos
 $cursosArray = array();
 
 if ($result->num_rows > 0) {
@@ -113,13 +133,13 @@ $cursos = $conn->query($sqlcursos);
 
 
 // Realiza una consulta a la base de datos para obtener los turnos
-$sql = "SELECT id_turnos, nombre_turnos FROM turnos";
+$sql = "SELECT * FROM turnos";
 $result = $conn->query($sql);
 
 // Crea un array para almacenar los turnos y sus identificadores desde la base de datos
 $turnosArray = array();
 
-if ($result > 0) {
+if ($result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     $turnosArray[] = array(
       'id_turnos' => $row["id_turnos"],
@@ -130,7 +150,6 @@ if ($result > 0) {
 
 $sqlturnos = "SELECT * FROM turnos;";
 $turnos = $conn->query($sqlturnos);
-
 ?>
 
 <!DOCTYPE html>
@@ -481,9 +500,11 @@ $turnos = $conn->query($sqlturnos);
                                     <select class="block-style form-select" id="profesorAsignado"
                                         name="profesorAsignado">
                                         <option selected>Seleccione un Profesor</option>
-                                        <option value="jose-rivas">Jose Rivas</option>
-                                        <option value="joseva-legarra">Joseva Legarra</option>
-                                        <option value="gregory-arteaga">Gregory Arteaga</option>
+                                        <?php foreach ($profesoresArray as $profesor) { ?>
+                <option value="<?php echo $profesor['id_usuario']; ?>">
+                    <?php echo $profesor['nombre'] . ' ' . $profesor['apellido']; ?>
+                </option>
+            <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -504,29 +525,13 @@ $turnos = $conn->query($sqlturnos);
 
                         <div class="block">
                             <div class="block-boton">
-                                <button class="generarID" id="generadorID"><span class="text-generarID">Generar
-                                        ID</span></button>
-                                <input class="id-generar" type="text" id="idUsuario" readonly>
-                                <button class="guardarID" id="guardarIDButton"><span class="text-guardarID">Guardar ID</span></button>
+                            <input for="idSesion" class="id-generar" type="text" name="idUsuario" value="<?php echo $numeroFormateado; ?>" readonly>
+                            
                             </div>
                         </div>
-
-                        <?php
-                        /*
-// Generar número aleatorio de 4 dígitos
-$numeroAleatorio = rand(1000, 9999);
-
-// Formatear el número para asegurarse de que tenga 4 dígitos
-$numeroFormateado = str_pad($numeroAleatorio, 4, '0', STR_PAD_LEFT);
-
-// Asignar el número generado al campo de entrada
-echo '<script>document.getElementById("idUsuario").value = "'.$numeroFormateado.'";</script>';
-*/
-?>
-
                         <div class="block">
                             <div class="formulario-registrar">
-                                <button class="registrar-user" id="registerUser"><span
+                                <button type="submit" name="registrar" class="registrar-user" id="registerUser"><span
                                         class="text-register">Registrar</span></button>
                             </div>
                         </div>

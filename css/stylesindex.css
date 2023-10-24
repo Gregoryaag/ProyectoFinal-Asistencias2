@@ -656,3 +656,16 @@ input:checked+.slider-cerrar-sesion:before {
 .icon-buscar{
   margin-top: 4px;
 }
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.button-container form {
+  margin-right: 10px;
+}
+
+
+

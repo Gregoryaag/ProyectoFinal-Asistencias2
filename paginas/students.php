@@ -1,3 +1,53 @@
+<?php
+require("../modelos/conexion.php");
+
+// Obtener todos los estudiantes de la base de datos
+$sql = "SELECT * FROM usuarios WHERE rol = 2";
+$resultado = $conn->query($sql);
+
+// Verificar si se ha enviado el formulario para eliminar un estudiante
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminar_estudiante"])) {
+    $estudiante_id = $_POST["estudiante_id"];
+
+    // Eliminar el estudiante de la base de datos
+    $sql = "DELETE FROM usuarios WHERE rol = $estudiante_id AND rol = '2' LIMIT 1";
+    if ($conn->query($sql) === TRUE) {
+        header("Location: students.php");
+        exit();
+    } else {
+        echo "Error al eliminar el estudiante: " . $conn->error;
+    }
+}
+
+elseif (isset($_POST["modificar_estudiante"])) {
+    $estudiante_id = $_POST["estudiante_id"];
+    $nuevo_nombre = $_POST["nuevo_nombre"];
+    $nuevo_apellido = $_POST["nuevo_apellido"];
+    $nueva_cedula = $_POST["nueva_cedula"];
+
+    // Modificar los datos del estudiante en la base de datos
+    $sql = "UPDATE usuarios SET nombre = '$nuevo_nombre', apellido = '$nuevo_apellido', cedula = '$nueva_cedula' WHERE id = $estudiante_id AND rol = '2' LIMIT 1";
+    if ($conn->query($sql) === TRUE) {
+        header("Location: students.php");
+        exit();
+    } else {
+        echo "Error al modificar el estudiante: " . $conn->error;
+    }
+} elseif (isset($_POST["cambiar_estado_estudiante"])) {
+    $estudiante_id = $_POST["estudiante_id"];
+    $nuevo_estado = $_POST["nuevo_estado"];
+
+    // Cambiar el estado del estudiante en la base de datos
+    $sql = "UPDATE usuarios SET status = $nuevo_estado WHERE rol = $estudiante_id AND rol = '2' LIMIT 1";
+    if ($conn->query($sql) === TRUE) {
+        header("Location: students.php");
+        exit();
+    } else {
+        echo "Error al cambiar el estado del estudiante: " . $conn->error;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -207,131 +257,51 @@
                         <table class="tabla-estudiantes table table-striped" id="tablaEstudiantes">
                             <thead>
                                 <tr class="">
-                                    <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                     <th scope="col">Cedula</th>
-                                    <th scope="col">Curso Inscrito</th>
-                                    <th scope="col">Turno</th>
-                                    <th scope="col">ID</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Gregory</td>
-                                    <td>Arteaga</td>
-                                    <td>24210544</td>
-                                    <td>Programacion Web</td>
-                                    <td>11:00 a.m - 02:00 p.m</td>
-                                    <td>1234</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jose</td>
-                                    <td>Rivas</td>
-                                    <td>18943557</td>
-                                    <td>Python - Nivel 2</td>
-                                    <td>Sab 01:00 p.m - 06:00 p.m</td>
-                                    <td>4321</td>
-                                    <td>Inactivo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jesus</td>
-                                    <td>Casanova</td>
-                                    <td>28536012</td>
-                                    <td>Marketing Digital - Nivel 1</td>
-                                    <td>02:00 p.m - 05:00 p.m</td>
-                                    <td>1423</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jesus</td>
-                                    <td>Casanova</td>
-                                    <td>28536012</td>
-                                    <td>Marketing Digital - Nivel 1</td>
-                                    <td>02:00 p.m - 05:00 p.m</td>
-                                    <td>1423</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jesus</td>
-                                    <td>Casanova</td>
-                                    <td>28536012</td>
-                                    <td>Marketing Digital - Nivel 1</td>
-                                    <td>02:00 p.m - 05:00 p.m</td>
-                                    <td>1423</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jesus</td>
-                                    <td>Casanova</td>
-                                    <td>28536012</td>
-                                    <td>Marketing Digital - Nivel 1</td>
-                                    <td>02:00 p.m - 05:00 p.m</td>
-                                    <td>1423</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jesus</td>
-                                    <td>Casanova</td>
-                                    <td>28536012</td>
-                                    <td>Marketing Digital - Nivel 1</td>
-                                    <td>02:00 p.m - 05:00 p.m</td>
-                                    <td>1423</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jesus</td>
-                                    <td>Casanova</td>
-                                    <td>28536012</td>
-                                    <td>Marketing Digital - Nivel 1</td>
-                                    <td>02:00 p.m - 05:00 p.m</td>
-                                    <td>1423</td>
-                                    <td>Activo</td>
-                                    <td>
-                                        <button class="btn-modificar">Modificar</button>
-                                        <button class="btn-eliminar">Eliminar</button>
-                                      </td>
-                                </tr>
-                            </tbody>
+                            <?php
+        // Mostrar los estudiantes en la tabla
+        if ($resultado->num_rows > 0) {
+            while ($row = $resultado->fetch_assoc()) {
+                ?>
+                <tr>
+                    <td class="editable" contenteditable="true"><?php echo $row["nombre"]; ?></td>
+                    <td class="editable" contenteditable="true"><?php echo $row["apellido"]; ?></td>
+                    <td class="editable" contenteditable="true"><?php echo $row["cedula"]; ?></td>
+                    <td><?php echo ($row["status"] == 1) ? "Activo" : "Inactivo"; ?></td>
+                    <td>
+                    <div class="button-container">
+    <form method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este estudiante?');">
+        <input type="hidden" name="estudiante_id" value="<?php echo $row["rol"]; ?>">
+        <button type="submit" name="eliminar_estudiante">Eliminar</button>
+    </form>
+    <form method="POST">
+        <input type="hidden" name="estudiante_id" value="<?php echo $row["rol"]; ?>">
+        <button type="submit" name="modificar_estudiante">Guardar</button>
+    </form>
+    <form method="POST">
+        <input type="hidden" name="estudiante_id" value="<?php echo $row["rol"]; ?>">
+        <input type="hidden" name="nuevo_estado" value="<?php echo ($row["status"] == 1) ? 0 : 1; ?>">
+        <button type="submit" name="cambiar_estado_estudiante"><?php echo ($row["status"] == 1) ? "Desactivar" : "Activar"; ?></button>
+    </form>
+</div>
+</td>
+</tr>
+<?php
+}
+} else {
+?>
+<tr>
+    <td colspan="5">No se encontraron estudiantes.</td>
+</tr>
+<?php
+}
+?>
                         </table>
                         <div class="paginacion">
                             <nav aria-label="...">
