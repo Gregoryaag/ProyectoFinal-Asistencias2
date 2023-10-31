@@ -1,5 +1,6 @@
 <?php
 require("../modelos/conexion.php");
+include("../modelos/guardar_estudiante.php");
 
 // Obtener todos los estudiantes de la base de datos
 $sql = "SELECT * FROM usuarios WHERE rol = 2";
@@ -10,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminar_estudiante"])
     $estudiante_id = $_POST["estudiante_id"];
 
     // Eliminar el estudiante de la base de datos
-    $sql = "DELETE FROM usuarios WHERE rol = $estudiante_id AND rol = '2' LIMIT 1";
+    $sql = "DELETE FROM usuarios WHERE id_usuario = $estudiante_id";
     if ($conn->query($sql) === TRUE) {
         header("Location: students.php");
         exit();
@@ -19,26 +20,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["eliminar_estudiante"])
     }
 }
 
-elseif (isset($_POST["modificar_estudiante"])) {
+/*elseif (isset($_POST["guardar_estudiante"])) {
     $estudiante_id = $_POST["estudiante_id"];
     $nuevo_nombre = $_POST["nuevo_nombre"];
     $nuevo_apellido = $_POST["nuevo_apellido"];
     $nueva_cedula = $_POST["nueva_cedula"];
 
     // Modificar los datos del estudiante en la base de datos
-    $sql = "UPDATE usuarios SET nombre = '$nuevo_nombre', apellido = '$nuevo_apellido', cedula = '$nueva_cedula' WHERE id = $estudiante_id AND rol = '2' LIMIT 1";
+    $sql = "UPDATE usuarios SET nombre = '$nuevo_nombre', apellido = '$nuevo_apellido', cedula = '$nueva_cedula' WHERE id_usuario = $estudiante_id AND rol = '2' LIMIT 1";
     if ($conn->query($sql) === TRUE) {
         header("Location: students.php");
         exit();
     } else {
         echo "Error al modificar el estudiante: " . $conn->error;
     }
-} elseif (isset($_POST["cambiar_estado_estudiante"])) {
+}*/elseif (isset($_POST["cambiar_estado_estudiante"])) {
     $estudiante_id = $_POST["estudiante_id"];
     $nuevo_estado = $_POST["nuevo_estado"];
 
     // Cambiar el estado del estudiante en la base de datos
-    $sql = "UPDATE usuarios SET status = $nuevo_estado WHERE rol = $estudiante_id AND rol = '2' LIMIT 1";
+    $sql = "UPDATE usuarios SET status = $nuevo_estado WHERE id_usuario = $estudiante_id AND rol = '2' LIMIT 1";
     if ($conn->query($sql) === TRUE) {
         header("Location: students.php");
         exit();
@@ -240,23 +241,24 @@ elseif (isset($_POST["modificar_estudiante"])) {
             <div class="container-header">
                 <h1 class="header-text">Estudiantes</h1>
             </div>
-                <div class="container-estudiantes">
-                    <div class="container-table-all">
-                        <div class="filtrar-estudiantes">
-                            <div class="icon-buscar">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
-                                    class="bi bi-search" viewBox="0 0 16 16">
-                                    <path
-                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg>
-                            </div>
-                            <input class="input-buscar" type="text" id="buscarInput" placeholder="Buscar">
+            <div class="container-estudiantes">
+                <div class="container-table-all">
+                    <div class="filtrar-estudiantes">
+                        <div class="icon-buscar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-search" viewBox="0 0 16 16">
+                                <path
+                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                            </svg>
                         </div>
+                        <input class="input-buscar" type="text" id="buscarInput" placeholder="Buscar">
+                    </div>
 
                     <div class="container-tabla-estudiantes">
                         <table class="tabla-estudiantes table table-striped" id="tablaEstudiantes">
                             <thead>
                                 <tr class="">
+                                    <th scope="col">ID</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                     <th scope="col">Cedula</th>
@@ -265,43 +267,62 @@ elseif (isset($_POST["modificar_estudiante"])) {
                                 </tr>
                             </thead>
                             <?php
-        // Mostrar los estudiantes en la tabla
-        if ($resultado->num_rows > 0) {
-            while ($row = $resultado->fetch_assoc()) {
-                ?>
-                <tr>
-                    <td class="editable" contenteditable="true"><?php echo $row["nombre"]; ?></td>
-                    <td class="editable" contenteditable="true"><?php echo $row["apellido"]; ?></td>
-                    <td class="editable" contenteditable="true"><?php echo $row["cedula"]; ?></td>
-                    <td><?php echo ($row["status"] == 1) ? "Activo" : "Inactivo"; ?></td>
-                    <td>
-                    <div class="button-container">
-    <form method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este estudiante?');">
-        <input type="hidden" name="estudiante_id" value="<?php echo $row["rol"]; ?>">
-        <button type="submit" name="eliminar_estudiante">Eliminar</button>
-    </form>
-    <form method="POST">
-        <input type="hidden" name="estudiante_id" value="<?php echo $row["rol"]; ?>">
-        <button type="submit" name="modificar_estudiante">Guardar</button>
-    </form>
-    <form method="POST">
-        <input type="hidden" name="estudiante_id" value="<?php echo $row["rol"]; ?>">
-        <input type="hidden" name="nuevo_estado" value="<?php echo ($row["status"] == 1) ? 0 : 1; ?>">
-        <button type="submit" name="cambiar_estado_estudiante"><?php echo ($row["status"] == 1) ? "Desactivar" : "Activar"; ?></button>
-    </form>
-</div>
-</td>
-</tr>
-<?php
-}
-} else {
-?>
-<tr>
-    <td colspan="5">No se encontraron estudiantes.</td>
-</tr>
-<?php
-}
-?>
+                            // Mostrar los estudiantes en la tabla
+                            if ($resultado->num_rows > 0) {
+                                while ($row = $resultado->fetch_assoc()) {
+                                    ?>
+                                    <tr>
+                                        <td>
+                                            <?php echo $row["id_usuario"]; ?>
+                                        </td>
+                                        <td id="nombre_<?php echo $row["id_usuario"]; ?>" contenteditable="true">
+                                            <?php echo $row["nombre"]; ?>
+                                        </td>
+                                        <td id="apellido_<?php echo $row["id_usuario"]; ?>" contenteditable="true">
+                                            <?php echo $row["apellido"]; ?>
+                                        </td>
+                                        <td id="cedula_<?php echo $row["id_usuario"]; ?>" contenteditable="true">
+                                            <?php echo $row["cedula"]; ?>
+                                        </td>
+                                        <td>
+                                            <?php echo ($row["status"] == 1) ? "Activo" : "Inactivo"; ?>
+                                        </td>
+                                        <td>
+                                            <div class="button-container">
+                                                <form method="POST"
+                                                    onsubmit="return confirm('¿Estás seguro de eliminar este estudiante?');">
+                                                    <input type="hidden" name="estudiante_id"
+                                                        value="<?php echo $row["id_usuario"]; ?>">
+                                                    <button type="submit" name="eliminar_estudiante">Eliminar</button>
+                                                </form>
+                                                <form method="POST">
+                                                    <input type="hidden" name="estudiante_id"
+                                                        value="<?php echo $row["id_usuario"]; ?>">
+                                                    <button type="button"
+                                                        onclick="guardarEstudiante(<?php echo $row['id_usuario']; ?>)">Guardar</button>
+                                                </form>
+                                                <form method="POST">
+                                                    <input type="hidden" name="estudiante_id"
+                                                        value="<?php echo $row["id_usuario"]; ?>">
+                                                    <input type="hidden" name="nuevo_estado"
+                                                        value="<?php echo ($row["status"] == 1) ? 0 : 1; ?>">
+                                                    <button type="submit" name="cambiar_estado_estudiante">
+                                                        <?php echo ($row["status"] == 1) ? "Desactivar" : "Activar"; ?>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                <tr>
+                                    <td colspan="5">No se encontraron estudiantes.</td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
                         </table>
                         <div class="paginacion">
                             <nav aria-label="...">
@@ -326,6 +347,25 @@ elseif (isset($_POST["modificar_estudiante"])) {
         </div>
     </div>
     <script src="/js/script.js"></script>
+
+    <script>
+    function guardarEstudiante(estudianteId) {
+    var nuevoNombre = document.getElementById("nombre_" + estudianteId).innerText;
+    var nuevoApellido = document.getElementById("apellido_" + estudianteId).innerText;
+    var nuevaCedula = document.getElementById("cedula_" + estudianteId).innerText;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "guardar_estudiante.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Manejar la respuesta del servidor si es necesario
+            console.log(xhr.responseText);
+        }
+    };
+    xhr.send("estudiante_id=" + estudianteId + "&nuevo_nombre=" + encodeURIComponent(nuevoNombre) + "&nuevo_apellido=" + encodeURIComponent(nuevoApellido) + "&nueva_cedula=" + encodeURIComponent(nuevaCedula));
+}
+</script>
 </body>
 
 </html>

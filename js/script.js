@@ -349,6 +349,28 @@ document.addEventListener("DOMContentLoaded", function() {
   // Mostrar las filas y crear la paginacion inicial
   displayRows();
   createPagination();
-});
+}); 
 
+/*
+function guardarCambios(event, estudianteId) {
+  event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
 
+  // Encuentra la fila del estudiante correspondiente al estudianteId
+  var filaEstudiante = document.querySelector('.fila-estudiante[data-estudiante-id="' + estudianteId + '"]');
+
+  // Captura los valores de las celdas editables
+  var nuevoNombre = filaEstudiante.querySelector('.editable[data-campo="nombre"]').textContent;
+  var nuevoApellido = filaEstudiante.querySelector('.editable[data-campo="apellido"]').textContent;
+  var nuevaCedula = filaEstudiante.querySelector('.editable[data-campo="cedula"]').textContent;
+
+  // Asigna los valores capturados a los campos ocultos del formulario
+  filaEstudiante.querySelector('input[name="nuevo_nombre"]').value = nuevoNombre;
+  filaEstudiante.querySelector('input[name="nuevo_apellido"]').value = nuevoApellido;
+  filaEstudiante.querySelector('input[name="nueva_cedula"]').value = nuevaCedula;
+
+filaEstudiante.querySelector('.editable[data-campo="nombre"]').textContent = nuevoNombre;
+filaEstudiante.querySelector('.editable[data-campo="apellido"]').textContent = nuevoApellido;
+filaEstudiante.querySelector('.editable[data-campo="cedula"]').textContent = nuevaCedula;
+  // Envía el formulario
+  filaEstudiante.querySelector('form').submit();
+}*/
